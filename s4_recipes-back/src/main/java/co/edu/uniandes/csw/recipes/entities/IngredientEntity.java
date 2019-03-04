@@ -17,7 +17,6 @@ public class IngredientEntity extends BaseEntity implements Serializable {
     
         private String name;
         private Long calories;
-        private Long id;
 
     /**
      * @return the name
@@ -45,19 +44,5 @@ public class IngredientEntity extends BaseEntity implements Serializable {
      */
     public void setCalories(Long calories) {
         this.calories = calories;
-    }
-
-    /**
-     * @return the id
-     */
-    public Long getId() {
-        return id;
-    }
-
-    /**
-     * @param id the id to set
-     */
-    public void setId(Long id) {
-        this.id = id;
     }
 }
