@@ -110,4 +110,53 @@ public class RecipeLogicTest {
         Assert.assertEquals(newEntity.getId(), entity.getId());
         Assert.assertEquals(newEntity.getName(), entity.getName());
     }
+    
+    @Test(expected = BusinessLogicException.class)
+    public void createRecipeConMismoNombreTest() throws BusinessLogicException {
+        RecipeEntity newEntity = factory.manufacturePojo(RecipeEntity.class);
+        newEntity.setName(data.get(0).getName());
+        recipeLogic.createRecipe(newEntity);
+    }
+    
+    @Test(expected = BusinessLogicException.class)
+    public void createRecipeTestConNombreInvalido() throws BusinessLogicException {
+        RecipeEntity newEntity = factory.manufacturePojo(RecipeEntity.class);
+        newEntity.setName("");
+        recipeLogic.createRecipe(newEntity);
+    }
+
+    @Test(expected = BusinessLogicException.class)
+    public void createRecipeTestConNombreInvalido2() throws BusinessLogicException {
+        RecipeEntity newEntity = factory.manufacturePojo(RecipeEntity.class);
+        newEntity.setName(null);
+        recipeLogic.createRecipe(newEntity);
+    }
+    
+    @Test(expected = BusinessLogicException.class)
+    public void createRecipeTestConNombreInvalido3() throws BusinessLogicException {
+        RecipeEntity newEntity = factory.manufacturePojo(RecipeEntity.class);
+        newEntity.setName("llllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllll");
+        recipeLogic.createRecipe(newEntity);
+    }
+    
+    @Test(expected = BusinessLogicException.class)
+    public void createRecipeTestConDescripcionInvalida() throws BusinessLogicException {
+        RecipeEntity newEntity = factory.manufacturePojo(RecipeEntity.class);
+        newEntity.setDescription("");
+        recipeLogic.createRecipe(newEntity);
+    }
+
+    @Test(expected = BusinessLogicException.class)
+    public void createRecipeTestConDescripcionInvalida2() throws BusinessLogicException {
+        RecipeEntity newEntity = factory.manufacturePojo(RecipeEntity.class);
+        newEntity.setDescription(null);
+        recipeLogic.createRecipe(newEntity);
+    }
+    
+    @Test(expected = BusinessLogicException.class)
+    public void createRecipeTestConDescripcionInvalida3() throws BusinessLogicException {
+        RecipeEntity newEntity = factory.manufacturePojo(RecipeEntity.class);
+        newEntity.setDescription("lkasnlkncklnclascnalcnlasncalsncasklcnlasnlasnkclandjvnkajbnjkasnckajsnclaskcnalskcnslakcnalkscnklascnklaslalskanckasncklanckajsckajscnkjasncjkasncjkasncjkasncjkasncjkasnckjasncajksncajkscnaskjcnaskjcnajkscnkjasncjkasncsjkancajkcsnkjascnjkasc");
+        recipeLogic.createRecipe(newEntity);
+    }
 }
